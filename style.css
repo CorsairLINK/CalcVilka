@@ -1,0 +1,111 @@
+/* style.css */
+body {
+    font-family: 'Calibri', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #222;
+    color: #fff;
+}
+
+.calculator {
+    background: #333;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.mainText {
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #F54B64, #F78361);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    align-items: center;
+}
+
+.header, .label, .plus {
+    text-align: center;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.number, .currency {
+    width: 100%;
+    padding: 8px;
+    margin: 3px 0;
+    box-sizing: border-box;
+    background-color: #444;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 18px;
+    appearance: none;
+}
+
+.currency {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat, repeat;
+    background-position: right 10px center;
+    background-color: #444;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.currency option {
+    background-color: #555;
+    cursor: pointer;
+}
+
+.currency option:hover {
+    background-color: #555;
+    color: black;
+    cursor: pointer;
+}
+
+.fork-result {
+    margin-top: 30px;
+    font-size: 24px;
+}
+
+.procent {
+    font-size: 25px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #F54B64, #F78361);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.plus {
+    font-size: 25px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #1D976C, #93F9B9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}

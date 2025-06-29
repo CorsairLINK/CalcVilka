@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Калькулятор вилок</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <h2 class="mainText">Калькулятор вилок</h2>
+    <div class="grid-container">
+      <!-- Заголовки -->
+      <span></span>
+      <span class="header">Коэф.</span>
+      <span class="header">Сумма</span>
+      <span class="header">Валюта</span>
+      <span class="header">Доход</span>
+
+      <!-- Исход 1 -->
+      <span class="label">Исход 1</span>
+      <input class="number" id="k1" placeholder="Коэф. 1">
+      <input class="number" id="s1" placeholder="Сумма 1">
+      <select class="currency" id="c1">
+        <option value="RUB">RUB</option>
+        <option value="USD">USD</option>
+      </select>
+      <span class="plus" id="p1">0</span>
+
+      <!-- Исход 2 -->
+      <span class="label">Исход 2</span>
+      <input class="number" id="k2" placeholder="Коэф. 2">
+      <input class="number" id="s2" placeholder="Сумма 2">
+      <select class="currency" id="c2">
+        <option value="RUB">RUB</option>
+        <option value="USD">USD</option>
+      </select>
+      <span class="plus" id="p2">0</span>
+
+      <!-- Новая строка -->
+      <span></span>
+      <span></span>
+      <span class="label" id="totalSum">0</span>
+      <span></span>
+      <span></span>
+    </div>
+    <p class="fork-result">Процент вилки: <span class="procent" id="result">0 %</span></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
