@@ -22,9 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
     c1Select.addEventListener('change', updateCurrency1);
     c2Select.addEventListener('change', updateCurrency2);
 
+    function parseInputValue(value) {
+        // Заменяем запятую на точку для корректного преобразования в число
+        return parseFloat(value.replace(',', '.'));
+    }
+
     function calculate() {
-        const k1 = parseFloat(k1Input.value);
-        const k2 = parseFloat(k2Input.value);
+        const k1 = parseInputValue(k1Input.value);
+        const k2 = parseInputValue(k2Input.value);
 
         if (!isNaN(k1) && !isNaN(k2) && k1 !== 0) {
             koefRes = k2 / k1;
@@ -36,9 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function calculateSum() {
-        const s1 = parseFloat(s1Input.value);
-        const k1 = parseFloat(k1Input.value);
-        const k2 = parseFloat(k2Input.value);
+        const s1 = parseInputValue(s1Input.value);
+        const k1 = parseInputValue(k1Input.value);
+        const k2 = parseInputValue(k2Input.value);
 
         if (!isNaN(s1) && koefRes !== 0) {
             const s2 = Math.round(s1 / koefRes);
@@ -47,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
             koefNaSum_1 = k1 * s1;
             koefNaSum_2 = k2 * s2;
 
-            const plus = koefNaSum_1 - s1 - s2;
+            let plus = koefNaSum_1 - s1 - s2;
+            plus = Math.round(plus);
 
             p1Span.textContent = plus;
             p2Span.textContent = plus;
