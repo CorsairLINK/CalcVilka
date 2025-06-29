@@ -109,3 +109,9 @@ body {
     background-clip: text;
     color: transparent;
 }
+.version {
+    font-size: 12px;
+    text-align: right;
+    margin-top: 10px;
+    color: #aaa;
+}
