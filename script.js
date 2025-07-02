@@ -92,22 +92,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     // Функция для получения текущего курса доллара
     function fetchExchangeRate() {
-        const today = new Date();
-        const day = String(today.getDate()).padStart(2, '0');
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const year = today.getFullYear();
-        const date = `${day}/${month}/${year}`;
-        
-
-        const url = `http://www.cbr.ru/scripts/XML_daily.asp?date_req=${date}`;
+        const url = `https://www.cbr-xml-daily.ru/daily.xml`;
 
         const xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
-        
+
         xhr.onload = function() {
             if (xhr.status === 200) {
                 const parser = new DOMParser();
-                console.log(1);
+
                 const xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
                 const usdNode = xmlDoc.querySelector("Valute[ID='R01235'] Value");
                 if (usdNode) {
