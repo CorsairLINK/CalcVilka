@@ -115,3 +115,13 @@ body {
     margin-top: 10px;
     color: #aaa;
 }
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.exchange-rate, .version {
+    font-size: 12px;
+    color: #aaa;
+}

@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const p2Span = document.getElementById('p2');
     const totalSumSpan = document.getElementById('totalSum');
     const resultSpan = document.getElementById('result');
+    const exchangeRateValueSpan = document.getElementById('exchangeRateValue');
 
     let koefRes = 1;
     let isCurrency1RUB = true;
@@ -89,4 +90,35 @@ document.addEventListener('DOMContentLoaded', function() {
         isCurrency2RUB = c2Select.value === 'RUB';
         console.log('Currency 2 is RUB:', isCurrency2RUB);
     }
+    // Функция для получения текущего курса доллара
+    function fetchExchangeRate() {
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        const date = `${day}/${month}/${year}`;
+        
+
+        const url = `http://www.cbr.ru/scripts/XML_daily.asp?date_req=${date}`;
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                const parser = new DOMParser();
+                console.log(1);
+                const xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
+                const usdNode = xmlDoc.querySelector("Valute[ID='R01235'] Value");
+                if (usdNode) {
+                    const usdRate = parseFloat(usdNode.textContent.replace(',', '.'));
+                    exchangeRateValueSpan.textContent = usdRate.toFixed(2);
+                }
+            }
+        };
+        xhr.send();
+    }
+
+    // Вызываем функцию при загрузке страницы
+    fetchExchangeRate();
 });
