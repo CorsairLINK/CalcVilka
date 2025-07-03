@@ -6,4 +6,4 @@
 
 Код полностью написан через ИИ "mistral.ai".
 
-![image](https://github.com/user-attachments/assets/405529ac-7901-456e-9d36-bac1130d4260)
+![image](https://github.com/user-attachments/assets/4e361185-8d76-4f36-8616-412083169545)
