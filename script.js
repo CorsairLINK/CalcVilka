@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             koefRes = 1;
         }
-        calculateSum(); // Вызов функции для расчета суммы
+        calculateSum();
     }
 
     // Функция для расчета сумм и обновления значений
@@ -59,24 +59,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const k2 = parseInputValue(k2Input.value);
 
         if (!isNaN(s1) && koefRes !== 0) {
-            // Устанавливаем значения в зависимости от выбранной валюты
             s1Input_2 = isCurrency1RUB ? s1 : s1 * exchangeRate;
-
-            // Вычисляем s2
             let s2 = s1Input_2 / koefRes;
-
-            // Проверяем выбор валюты для s2
             s2Input_2 = isCurrency2RUB ? s2 : s2 / exchangeRate;
-
-            // Устанавливаем значение в поле s2 в зависимости от выбранной валюты
             s2Input.value = isCurrency2RUB ? Math.round(s2Input_2) : s2Input_2.toFixed(2);
 
             koefNaSum_1 = k1 * s1Input_2;
             koefNaSum_2 = k2 * s2Input_2;
 
-            updatePlusValues(); // Обновляем значения plus
+            updatePlusValues();
         } else {
-            // Сброс значений при некорректном вводе
             s2Input.value = '0';
             p1Span.textContent = '0';
             p2Span.textContent = '0';
@@ -95,7 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let plus1 = koefNaSum_1 - s1Input_2 - s2Input_2;
         let plus2 = koefNaSum_2 - s1Input_2 - s2Input_2;
 
-        // Обновляем отображение значений plus в зависимости от выбранной валюты
         if (!isCurrency1RUB) {
             p1Span.textContent = plus1.toFixed(2);
         } else {
@@ -108,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function() {
             p2Span.textContent = Math.round(plus2);
         }
 
-        // Рассчитываем общую сумму в зависимости от выбранной валюты в c3
         let totalSum;
         if (isCurrency3RUB) {
             totalSum = s1Input_2 + s2Input_2;
@@ -163,6 +153,5 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send();
     }
 
-    // Вызов функции для получения курса доллара при загрузке страницы
     fetchExchangeRate();
 });
