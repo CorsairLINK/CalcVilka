@@ -15,6 +15,7 @@
       <span class="header">Сумма</span>
       <span class="header">Валюта</span>
       <span class="header">Доход</span>
+      <span class="header"></span>
 
       <!-- Исход 1 -->
       <span class="label">Исход 1</span>
@@ -25,6 +26,7 @@
         <option value="USD">USD</option>
       </select>
       <span class="plus" id="p1">0</span>
+      <span class="currency-label" id="cur_label_1">rub</span>
 
       <!-- Исход 2 -->
       <span class="label">Исход 2</span>
@@ -35,18 +37,23 @@
         <option value="USD">USD</option>
       </select>
       <span class="plus" id="p2">0</span>
+      <span class="currency-label" id="cur_label_2">rub</span>
 
       <!-- Новая строка -->
       <span></span>
       <span></span>
       <span class="label" id="totalSum">0</span>
+      <select class="currency" id="c3">
+        <option value="RUB">RUB</option>
+        <option value="USD">USD</option>
+      </select>
       <span></span>
       <span></span>
     </div>
     <p class="fork-result">Процент вилки: <span class="procent" id="result">0 %</span></p>
     <div class="footer">
       <div class="exchange-rate">Текущий курс доллара: <span id="exchangeRateValue">0.00</span></div>
-      <div class="version">Version 1.03</div>
+      <div class="version">Version 1.05</div>
     </div>
   </div>
   <script src="script.js"></script>
